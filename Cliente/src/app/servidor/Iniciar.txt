@@ -1,0 +1,1 @@
+json-server --watch ./src/app/servidor/data.json

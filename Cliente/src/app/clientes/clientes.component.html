@@ -1,0 +1,56 @@
+<br>
+<p>Ingrese un nuevo Cliente:</p>
+<div>
+    <form>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="id" name="id" [(ngModel)]="id">
+            <input type="text" class="form-control" placeholder="nombre" name="nombre" [(ngModel)]="nombre">
+            <input type="text" class="form-control" placeholder="direccion" name="direccion" [(ngModel)]="direccion">
+            <input type="text" class="form-control" placeholder="cuit" name="cuit" [(ngModel)]="cuit">
+            <div class="input-group-append" id="button-addon4">
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="agregarCliente(id, nombre, direccion, cuit)">Agregar</button>
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="modificarCliente(id, nombre, direccion, cuit)">Modificar</button>
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="borrarCliente(id, nombre, direccion, cuit)">Quitar</button>
+            </div>
+        </div>
+        <!-- <input type="text" name="id" [(ngModel)]="id">
+            <input type="text" name="nombre" [(ngModel)]="nombre">
+            <input type="text" name="direccion" [(ngModel)]="direccion">
+            <input type="text" name="cuit" [(ngModel)]="cuit">
+            <button type="button" class="btn btn-primary">Agregar</button> -->
+        <br>
+    </form>
+
+    <p>Listado de Clientes:</p>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Cuit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <th scope="row">{{ cliente.id }}</th>
+                <td> {{ cliente.nombre }}</td>
+                <td> {{ cliente.direccion }}</td>
+                <td> {{ cliente.cuit }}</td>
+                <button class="btn btn-outline-secondary" type="button"
+                (click)="borrarCliente(cliente.cuit)">Quitar</button>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <!-- id: {{ id }} <br>
+        nombre: {{ nombre }} <br>
+        direccion: {{ direccion }} <br>
+        cuit: {{ cuit }} <br> -->
+</div>
+

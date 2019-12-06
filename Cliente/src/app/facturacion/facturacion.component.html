@@ -1,0 +1,152 @@
+<div class="container">
+  <div class="text-center">
+    <h1>Factura</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <!-- <h3 class="panel-title">Cabecera</h3> -->
+          <hr>
+          <div class="row" style="background-color:white;">
+
+            <div class="col-md-5" style="background-color:white;">
+              <div class="form-group">
+                <label for="cliente" class="col-sm-2 control-label">Cliente</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="cliente" placeholder="cliente" type="text">
+                    <option *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
+
+                    <!--<input class="form-control" id="cliente" placeholder="cliente" type="text">-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" style="background-color:white;">
+              <div class="form-group">
+
+                <label for="fecha" class="col-sm-5 control-label">Fecha factura</label>
+                <div class="col-sm-7">
+                  <input class="form-control" id="fecha" placeholder="fecha factura" type="date">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 target" style="background-color:white;">
+              <div class="form-group">
+                <label for="id" class="col-sm-3 control-label">Id</label>
+                <div class="col-sm-9">
+                  <input class="form-control" id="id" type="text">
+                </div>
+              </div>
+            </div>
+          </div> <!-- row -->
+          <br>
+          <hr>
+          <div class="row" style="background-color:white;">
+
+            <div class="col-md-5" style="background-color:white;">
+              <div class="form-group">
+                <label for="cliente" class="col-sm-2 control-label">Productos</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="cliente" placeholder="cliente" type="text">
+                    <option *ngFor="let producto of productos">{{producto.descripcion}}</option>
+
+                    <!--<input class="form-control" id="cliente" placeholder="cliente" type="text">-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" style="background-color:white;">
+              <div class="form-group">
+                <label for="id" class="col-sm-3 control-label">cantidad</label>
+                <div class="col-sm-9">
+                  <input class="form-control" id="id" type="number">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 target" style="background-color:white;">
+              <div class="col-md-5" style="background-color:white;">
+                <div class="form-group">
+                  <label for="cliente" class="col-sm-2 control-label">IVA</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" id="cliente" placeholder="cliente" type="text">
+                      <option value="10.5">10.5</option>
+                      <option value="21">21</option>
+
+                      <!--<input class="form-control" id="cliente" placeholder="cliente" type="text">-->
+                    </select>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+<div>
+    <button type="button" class="btn btn-primary">Agregar Item</button>
+
+</div>
+          </div> <!-- row -->
+          <div class="row">
+            <div class="col-md-6">
+
+            </div>
+          </div> <!-- row -->
+        </div> <!-- panel heading -->
+        <div class="panel-body">
+          <h3 class="panel-title">Detalle</h3>
+<hr>
+<label for="">la seccion de arriba puede conectarse al json tanto para clientes como para productos <br>
+  pero no esta funcionando, la parte de abajo agrega items pero no conecta con el json.  <br>
+  
+</label>
+<hr>
+<h3 class="panel-title">Items a facturar:</h3>
+<span>
+  <input type="text" placeholder="id" name="id" [(ngModel)]="id">
+  <input type="text" placeholder="cuit" name="cuit" [(ngModel)]="cuit">
+  <input type="text" placeholder="codigo" name="codigo" [(ngModel)]="codigo">
+  <input type="text" placeholder="descripcion" name="descripcion" [(ngModel)]="descripcion">
+  <input type="text" placeholder="Precio Unitario" name="pu" [(ngModel)]="pu">
+  <input type="text" placeholder="IVA" name="IVA" [(ngModel)]="IVA">
+  <input type="text" placeholder="Cantidad" name="Cantidad" [(ngModel)]="Cantidad">
+
+  <button class="btn btn-outline-secondary" type="button"
+    (click)="agregarItem(id, cuit, codigo, descripcion, pu, IVA, Cantidad)">Agregar</button>
+</span>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">cuit</th>
+      <th scope="col">codigo</th>
+      <th scope="col">descripcion</th>
+      <th scope="col">Precio Unitario</th>
+      <th scope="col">IVA</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of Items">
+      <th scope="row">{{ item.id }}</th>
+      <td> {{ item.cuit }}</td>
+      <td> {{ item.codigo }}</td>
+      <td> {{ item.descripcion }}</td>
+      <td> {{ item.PU }}</td>
+      <td> {{ item.IVA }}</td>
+      <td> {{ item.Cantidad }}</td>
+      <td> {{ item.subtotal }}</td>
+      <button class="btn btn-outline-secondary" type="button" (click)="quitarItem(item.codigo)">Quitar</button>
+    </tr>
+  </tbody>
+</table>
+</div> <!-- panel body -->
+       
+    </div> <!-- col -->
+  </div> <!-- row -->
+  <div class="row text-center">
+    <p class="">peu pagina</p>
+  </div>
+</div> <!-- container -->

@@ -1,0 +1,14 @@
+{
+	"app": {
+		"puerto": 3000
+	},
+
+	"log_sql": true,
+	"db_force_sync": false,
+
+	"db": {
+		"nombre_db": "SistemaFacturacion",
+		"usuario": "postgres",
+		"password": "postgres"
+	}
+}

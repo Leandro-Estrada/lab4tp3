@@ -1,0 +1,57 @@
+<br>
+<p>Ingrese un nuevo Producto:</p>
+<div>
+    <form>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="id" name="id" [(ngModel)]="id">
+            <input type="text" class="form-control" placeholder="codigo" name="codigo" [(ngModel)]="codigo">
+            <input type="text" class="form-control" placeholder="descripcion" name="descripcion" [(ngModel)]="descripcion">
+            <input type="text" class="form-control" placeholder="pu" name="pu" [(ngModel)]="pu">
+       
+            <div class="input-group-append" id="button-addon4">
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="agregarProducto(id, codigo, descripcion, pu)">Agregar</button>
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="modificarProducto(id, codigo, descripcion, pu)">Modificar</button>
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="borrarProducto(id, codigo, descripcion, pu)">Quitar</button>
+            </div>
+        </div>
+        <!-- <input type="text" name="id" [(ngModel)]="id">
+            <input type="text" name="nombre" [(ngModel)]="nombre">
+            <input type="text" name="direccion" [(ngModel)]="direccion">
+            <input type="text" name="cuit" [(ngModel)]="cuit">
+            <button type="button" class="btn btn-primary">Agregar</button> -->
+        <br>
+    </form>
+
+    <p>Listado de Productos:</p>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Precio Unitario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+                <th scope="row">{{ producto.id }}</th>
+                <td> {{ producto.codigo }}</td>
+                <td> {{ producto.descripcion }}</td>
+                <td> {{ producto.pu }}</td>
+                <button class="btn btn-outline-secondary" type="button"
+                (click)="borrarProducto(producto.pu)">Quitar</button>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <!-- id: {{ id }} <br>
+        nombre: {{ nombre }} <br>
+        direccion: {{ direccion }} <br>
+        cuit: {{ cuit }} <br> -->
+</div>
+

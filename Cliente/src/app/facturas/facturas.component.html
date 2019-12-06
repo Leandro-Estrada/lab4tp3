@@ -1,0 +1,59 @@
+<br>
+<div>
+    <form>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="id" name="id" [(ngModel)]="id">
+            <input type="text" class="form-control" placeholder="tipo" name="tipo" [(ngModel)]="tipo">
+            <input type="text" class="form-control" placeholder="numero" name="numero" [(ngModel)]="numero">
+            <input type="text" class="form-control" placeholder="Punto de Venta" name="PuntoVenta" [(ngModel)]="PuntoVenta">
+            <input type="text" class="form-control" placeholder="cliente" name="cliente" [(ngModel)]="cliente">
+            <input type="text" class="form-control" placeholder="total" name="total" [(ngModel)]="total">
+            <div class="input-group-append" id="button-addon4">
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="borrarFactura(numero)">Cancelar Factura</button>
+            </div>
+        </div>
+        <!-- <input type="text" name="id" [(ngModel)]="id">
+            <input type="text" name="nombre" [(ngModel)]="nombre">
+            <input type="text" name="direccion" [(ngModel)]="direccion">
+            <input type="text" name="cuit" [(ngModel)]="cuit">
+            <button type="button" class="btn btn-primary">Agregar</button> -->
+        <br>
+    </form>
+
+    <p>Listado de Facturas:</p>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">tipo</th>
+                <th scope="col">fecha</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Punto Venta</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let factura of facturas">
+                <th scope="row">{{ factura.id }}</th>
+                <td> {{ factura.tipo }}</td>
+                <td> {{ factura.fecha }}</td>
+                <td> {{ factura.numero }}</td>
+                <td> {{ factura.PtoVenta }}</td>
+                <td> {{ factura.cliente }}</td>
+                <td> {{ factura.total }}</td>
+                <button class="btn btn-outline-secondary" type="button"
+                (click)="borrarFactura(factura.id)">Cancelar Factura</button>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <!-- id: {{ id }} <br>
+        nombre: {{ nombre }} <br>
+        direccion: {{ direccion }} <br>
+        cuit: {{ cuit }} <br> -->
+</div>
+
